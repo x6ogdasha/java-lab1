@@ -1,7 +1,7 @@
 package Tools;
 
 public class CreditBalanceException extends Exception {
-    public CreditBalanceException(){
+    public CreditBalanceException() {
         super();
     }
 }

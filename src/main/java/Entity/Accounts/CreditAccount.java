@@ -1,24 +1,27 @@
 package Entity.Accounts;
 
 import Tools.CreditBalanceException;
+import Tools.CreditLimitException;
 import Tools.InvalidValueException;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
-
+@RequiredArgsConstructor
 public class CreditAccount implements IAccount{
 
     private int balance = 0;
-    private int creditLimit;
-    private int commission;
-    private int ownerId;
+    @NonNull private int creditLimit;
+    @NonNull private int commission;
+    @NonNull private int ownerId;
 
     @Override
-    public void withdrawMoney(int money) throws InvalidValueException {
+    public void withdrawMoney(double money) throws InvalidValueException {
         if (money < 0) throw new InvalidValueException();
         balance -= money;
     }
 
     @Override
-    public void addMoney(int money) throws InvalidValueException {
+    public void addMoney(double money) throws InvalidValueException {
         if (money < 0) throw new InvalidValueException();
         balance += money;
     }
@@ -30,7 +33,8 @@ public class CreditAccount implements IAccount{
     }
 
     @Override
-    public void calculateCommission() throws CreditBalanceException {
-        if (balance < creditLimit) throw new CreditBalanceException();
+    public void calculateCommission() throws CreditLimitException, CreditBalanceException {
+        if (balance < 0) throw new CreditBalanceException();
+        if (balance < creditLimit) throw new CreditLimitException();
     }
 }

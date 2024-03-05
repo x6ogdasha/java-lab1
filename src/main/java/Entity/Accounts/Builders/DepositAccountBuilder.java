@@ -4,13 +4,13 @@ import Entity.Accounts.DepositAccount;
 import Entity.Accounts.IAccount;
 
 public class DepositAccountBuilder implements IAccountBuilder{
-    private int myOwnerId;
+    private int myAccountId;
     private double myLowPercent;
     private double myMiddlePercent;
     private double myHighPercent;
     @Override
-    public IAccountBuilder setOwnerId(int ownerId) {
-        myOwnerId = ownerId;
+    public IAccountBuilder setAccountId(int accountId) {
+        myAccountId = accountId;
         return this;
     }
 
@@ -43,7 +43,7 @@ public class DepositAccountBuilder implements IAccountBuilder{
     }
 
     @Override
-    public IAccount create() {
-        return new DepositAccount(myOwnerId, myLowPercent, myMiddlePercent, myHighPercent);
+    public IAccount build() {
+        return new DepositAccount(myAccountId, myLowPercent, myMiddlePercent, myHighPercent);
     }
 }

@@ -1,6 +1,6 @@
 package Entity.Accounts;
 
-public enum AccountTypes {
+public enum AccountType {
     Debit,
     Credit,
     Deposit,

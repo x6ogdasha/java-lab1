@@ -5,15 +5,15 @@ import Entity.Accounts.IAccount;
 
 public class CreditAccountBuilder implements IAccountBuilder{
     private int myCreditLimit;
-    private int myOwnerId;
+    private int myAccountId;
     private int myCommission;
 
-    public IAccount create(){
-        return new CreditAccount(myCreditLimit, myOwnerId, myCommission);
+    public IAccount build(){
+        return new CreditAccount(myCreditLimit, myAccountId, myCommission);
     }
     @Override
-    public IAccountBuilder setOwnerId(int ownerId) {
-        myOwnerId = ownerId;
+    public IAccountBuilder setAccountId(int accountId) {
+        myAccountId = accountId;
         return this;
     }
 

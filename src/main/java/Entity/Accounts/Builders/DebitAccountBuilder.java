@@ -5,13 +5,13 @@ import Entity.Accounts.IAccount;
 
 public class DebitAccountBuilder implements IAccountBuilder{
     private double myPercent;
-    private int myOwnerId;
-    public IAccount create(){
-        return new DebitAccount(myOwnerId, myPercent);
+    private int myAccountId;
+    public IAccount build(){
+        return new DebitAccount(myAccountId, myPercent);
     }
     @Override
-    public IAccountBuilder setOwnerId(int ownerId) {
-        myOwnerId = ownerId;
+    public IAccountBuilder setAccountId(int accountId) {
+        myAccountId = accountId;
         return this;
     }
 

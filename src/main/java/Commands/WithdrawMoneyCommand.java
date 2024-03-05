@@ -13,7 +13,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class WithdrawMoneyCommand implements ICommand {
 
-    @NonNull private int currentAccountId;
+    @NonNull private Integer currentAccountId;
     @NonNull private IAccount currentAccount;
     @NonNull private Double money;
     private boolean canRollback = false;

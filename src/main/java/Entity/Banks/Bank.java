@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 public class Bank {
 
     private Map<User, ArrayList<Integer>> users;
-    private final Dictionary<IAccount, Integer> accounts;
+    private final Map<IAccount, Integer> accounts;
 
     private String name;
     private double percent;

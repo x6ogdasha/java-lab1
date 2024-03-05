@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 @RequiredArgsConstructor
-public class AddMoneyCommand implements ICommand{
+public class AddMoneyCommand implements ICommand {
 
     @NonNull private int currentAccountId;
     @NonNull private IAccount currentAccount;

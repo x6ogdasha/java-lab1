@@ -9,19 +9,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class CreditAccount implements IAccount{
 
-    private int balance = 0;
-    @NonNull private int creditLimit;
-    @NonNull private int commission;
-    @NonNull private int ownerId;
+    private Double balance = 0.0;
+    @NonNull private Integer creditLimit;
+    @NonNull private Integer ownerId;
+    @NonNull private Double commission;
+
 
     @Override
-    public void withdrawMoney(double money) throws InvalidValueException {
+    public void withdrawMoney(Double money) throws InvalidValueException {
         if (money < 0) throw new InvalidValueException();
         balance -= money;
     }
 
     @Override
-    public void addMoney(double money) throws InvalidValueException {
+    public void addMoney(Double money) throws InvalidValueException {
         if (money < 0) throw new InvalidValueException();
         balance += money;
     }
@@ -29,7 +30,7 @@ public class CreditAccount implements IAccount{
     @Override
     public void serviceAccount() throws InvalidValueException {
         addMoney(commission);
-        commission = 0;
+        commission = 0.0;
     }
 
     @Override

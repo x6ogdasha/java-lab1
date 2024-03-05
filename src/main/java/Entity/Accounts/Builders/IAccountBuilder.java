@@ -3,11 +3,11 @@ package Entity.Accounts.Builders;
 import Entity.Accounts.IAccount;
 
 public interface IAccountBuilder {
-    public IAccountBuilder setAccountId(int ownerId);
-    public IAccountBuilder setCreditLimit(int creditLimit);
-    public IAccountBuilder setDaysToUnlock(int days);
-    public IAccountBuilder setPercent(double percent);
-    public IAccountBuilder setCommission(int commission);
-    public IAccountBuilder setLowMiddleHighPercents(double lowPercent, double middlePercent, double highPercent);
+    public IAccountBuilder setAccountId(Integer ownerId);
+    public IAccountBuilder setCreditLimit(Integer creditLimit);
+    public IAccountBuilder setDaysToUnlock(Integer days);
+    public IAccountBuilder setPercent(Double percent);
+    public IAccountBuilder setCommission(Double commission);
+    public IAccountBuilder setLowMiddleHighPercents(Double lowPercent, Double middlePercent, Double highPercent);
     public IAccount build();
 }

@@ -17,7 +17,7 @@ public class TransferMoneyCommand implements ICommand {
     private int currentAccountId;
     @NonNull private IAccount currentAccount;
     @NonNull private IAccount recipientAccount;
-    @NonNull private double money;
+    @NonNull private Double money;
     private boolean canRollback = false;
     @Override
     public void execute(Map<IAccount, Integer> accounts, User user) throws CommandExecutingException, InvalidValueException, DebitWithdrawException {

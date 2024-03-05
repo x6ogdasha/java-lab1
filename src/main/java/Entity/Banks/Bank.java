@@ -20,15 +20,15 @@ public class Bank {
     private final Map<IAccount, Integer> accounts;
 
     private String name;
-    private double percent;
-    private double lowPercent;
-    private double middlePercent;
-    private double highPercent;
-    private int commission;
-    private int creditLimit;
-    private int daysToUnlockDeposit;
+    private Double percent;
+    private Double lowPercent;
+    private Double middlePercent;
+    private Double highPercent;
+    private Double commission;
+    private Integer creditLimit;
+    private Integer daysToUnlockDeposit;
 
-    private void updateAccountInformation(User user, int accountId, IAccount account) {
+    private void updateAccountInformation(User user, Integer accountId, IAccount account) {
         if (users.containsKey(user)) {
 
             ArrayList<Integer> userAccountIds = users.get(user);
@@ -46,7 +46,7 @@ public class Bank {
 
     }
 
-    public IAccount createDebitAccount(User user, int accountId) throws InvalidValueException {
+    public IAccount createDebitAccount(User user, Integer accountId) throws InvalidValueException {
 
         IAccount creditAccount = AccountDirector.create(AccountType.Credit)
                 .setAccountId(accountId)
@@ -61,7 +61,7 @@ public class Bank {
 
     }
 
-    public IAccount createCreditAccount(User user, int accountId) throws InvalidValueException {
+    public IAccount createCreditAccount(User user, Integer accountId) throws InvalidValueException {
         IAccount creditAccount = AccountDirector.create(AccountType.Credit)
                 .setAccountId(accountId)
                 .setCommission(commission)
@@ -73,7 +73,7 @@ public class Bank {
         return creditAccount;
     }
 
-    public IAccount createDepositAccount(User user, int accountId) throws InvalidValueException {
+    public IAccount createDepositAccount(User user, Integer accountId) throws InvalidValueException {
         IAccount depositAccount = AccountDirector.create(AccountType.Deposit)
                 .setAccountId(accountId)
                 .setDaysToUnlock(daysToUnlockDeposit)

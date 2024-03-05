@@ -8,21 +8,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DebitAccount implements IAccount {
 
-    private final int days = 365;
-    private double balance = 0;
-    @NonNull private int ownerId;
-    @NonNull private double percent;
-    private double monthPayment;
+    private final Integer days = 365;
+    private Double balance = 0.0;
+    @NonNull private Integer ownerId;
+    @NonNull private Double percent;
+    private Double monthPayment;
 
     @Override
-    public void withdrawMoney(double money) throws InvalidValueException, DebitWithdrawException {
+    public void withdrawMoney(Double money) throws InvalidValueException, DebitWithdrawException {
         if (money < 0) throw new InvalidValueException();
         if (money > balance) throw new DebitWithdrawException();
         balance -= money;
     }
 
     @Override
-    public void addMoney(double money) throws InvalidValueException {
+    public void addMoney(Double money) throws InvalidValueException {
         if (money < 0) throw new InvalidValueException();
         balance += money;
     }
@@ -30,7 +30,7 @@ public class DebitAccount implements IAccount {
     @Override
     public void serviceAccount() throws InvalidValueException, DebitWithdrawException {
         withdrawMoney(monthPayment);
-        monthPayment = 0;
+        monthPayment = 0.0;
     }
 
     @Override

@@ -10,34 +10,34 @@ public class DebitAccountBuilder implements IAccountBuilder{
         return new DebitAccount(myAccountId, myPercent);
     }
     @Override
-    public IAccountBuilder setAccountId(int accountId) {
+    public IAccountBuilder setAccountId(Integer accountId) {
         myAccountId = accountId;
         return this;
     }
 
     @Override
-    public IAccountBuilder setCreditLimit(int creditLimit) {
+    public IAccountBuilder setCreditLimit(Integer creditLimit) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public IAccountBuilder setDaysToUnlock(int days) {
+    public IAccountBuilder setDaysToUnlock(Integer days) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public IAccountBuilder setPercent(double percent) {
+    public IAccountBuilder setPercent(Double percent) {
         myPercent = percent;
         return this;
     }
 
     @Override
-    public IAccountBuilder setCommission(int commission) {
+    public IAccountBuilder setCommission(Double commission) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public IAccountBuilder setLowMiddleHighPercents(double lowPercent, double middlePercent, double highPercent) {
+    public IAccountBuilder setLowMiddleHighPercents(Double lowPercent, Double middlePercent, Double highPercent) {
         throw new UnsupportedOperationException();
     }
 }

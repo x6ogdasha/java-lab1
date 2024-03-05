@@ -4,43 +4,43 @@ import Entity.Accounts.CreditAccount;
 import Entity.Accounts.IAccount;
 
 public class CreditAccountBuilder implements IAccountBuilder{
-    private int myCreditLimit;
-    private int myAccountId;
-    private int myCommission;
+    private Integer myCreditLimit;
+    private Integer myAccountId;
+    private Double myCommission;
 
     public IAccount build(){
         return new CreditAccount(myCreditLimit, myAccountId, myCommission);
     }
     @Override
-    public IAccountBuilder setAccountId(int accountId) {
+    public IAccountBuilder setAccountId(Integer accountId) {
         myAccountId = accountId;
         return this;
     }
 
     @Override
-    public IAccountBuilder setCreditLimit(int creditLimit) {
+    public IAccountBuilder setCreditLimit(Integer creditLimit) {
         myCreditLimit = creditLimit;
         return this;
     }
 
     @Override
-    public IAccountBuilder setDaysToUnlock(int days) {
+    public IAccountBuilder setDaysToUnlock(Integer days) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public IAccountBuilder setPercent(double percent) {
+    public IAccountBuilder setPercent(Double percent) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public IAccountBuilder setCommission(int commission) {
+    public IAccountBuilder setCommission(Double commission) {
         myCommission = commission;
         return this;
     }
 
     @Override
-    public IAccountBuilder setLowMiddleHighPercents(double lowPercent, double middlePercent, double highPercent) {
+    public IAccountBuilder setLowMiddleHighPercents(Double lowPercent, Double middlePercent, Double highPercent) {
         throw new UnsupportedOperationException();
     }
 }

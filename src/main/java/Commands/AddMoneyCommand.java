@@ -13,9 +13,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AddMoneyCommand implements ICommand {
 
-    @NonNull private int currentAccountId;
+    @NonNull private Integer currentAccountId;
     @NonNull private IAccount currentAccount;
-    @NonNull private double money;
+    @NonNull private Double money;
     private boolean canRollback = false;
     @Override
     public void execute(Map<IAccount, Integer> accounts, User user) throws CommandExecutingException, InvalidValueException {

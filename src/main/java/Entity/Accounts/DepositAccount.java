@@ -7,26 +7,26 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DepositAccount implements IAccount{
 
-    private final int moneyForLowPercent = 50000;
-    private final int moneyForHighPercent = 100000;
-    private final int days = 365;
-    private int balance = 0;
-    private double monthPayment;
-    @NonNull private int ownerId;
-    @NonNull private double lowPercent;
-    @NonNull private double middlePercent;
-    @NonNull private double highPercent;
+    private final Integer moneyForLowPercent = 50000;
+    private final Integer moneyForHighPercent = 100000;
+    private final Integer days = 365;
+    private Double balance = 0.0;
+    private Double monthPayment;
+    @NonNull private Integer ownerId;
+    @NonNull private Double lowPercent;
+    @NonNull private Double middlePercent;
+    @NonNull private Double highPercent;
     private int daysToUnlock;
 
 
     @Override
-    public void withdrawMoney(double money) throws InvalidValueException {
+    public void withdrawMoney(Double money) throws InvalidValueException {
         if (money < 0) throw new InvalidValueException();
         balance -= money;
     }
 
     @Override
-    public void addMoney(double money) throws InvalidValueException {
+    public void addMoney(Double money) throws InvalidValueException {
         if (money < 0) throw new InvalidValueException();
         balance += money;
     }
@@ -34,7 +34,7 @@ public class DepositAccount implements IAccount{
     @Override
     public void serviceAccount() throws InvalidValueException {
         addMoney(monthPayment);
-        monthPayment = 0;
+        monthPayment = 0.0;
     }
 
     @Override

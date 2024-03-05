@@ -26,7 +26,7 @@ public class UserBuilder {
         return this;
     }
 
-    public UserBuilder setPassport(int passport) throws InvalidValueException {
+    public UserBuilder setPassport(Integer passport) throws InvalidValueException {
         if (passport < 0) throw new InvalidValueException();
         myPassport = passport;
         return this;

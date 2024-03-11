@@ -18,7 +18,7 @@ public class AddMoneyCommand implements ICommand {
     @NonNull private Double money;
     private boolean canRollback = false;
     @Override
-    public void execute(Map<IAccount, Integer> accounts, User user) throws CommandExecutingException, InvalidValueException {
+    public void execute(Map<Integer, IAccount> accounts, User user) throws CommandExecutingException, InvalidValueException {
 
         if (!accounts.containsValue(currentAccountId) || canRollback) throw new CommandExecutingException();
 

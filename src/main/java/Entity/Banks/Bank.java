@@ -1,12 +1,14 @@
 package Entity.Banks;
 
+import Commands.ICommand;
 import Entity.Accounts.AccountType;
 import Entity.Accounts.Builders.AccountDirector;
 import Entity.Accounts.Builders.CreditAccountBuilder;
 import Entity.Accounts.IAccount;
 import Entity.Users.User;
-import Tools.InvalidValueException;
+import Tools.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
@@ -16,10 +18,11 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public class Bank {
 
-    private Map<User, ArrayList<Integer>> users;
-    private final Map<IAccount, Integer> accounts;
+    Map<User, ArrayList<Integer>> users;
+    @Getter Map<Integer, IAccount> accounts;
 
-    private String name;
+    @Getter String name;
+    @Getter Integer pin;
     private Double percent;
     private Double lowPercent;
     private Double middlePercent;
@@ -48,16 +51,16 @@ public class Bank {
 
     public IAccount createDebitAccount(User user, Integer accountId) throws InvalidValueException {
 
-        IAccount creditAccount = AccountDirector.create(AccountType.Credit)
+        IAccount debitAccount = AccountDirector.create(AccountType.Credit)
                 .setAccountId(accountId)
                 .setPercent(percent)
                 .build();
 
-        accounts.put(creditAccount, accountId);
+        accounts.put(accountId, debitAccount);
 
-        updateAccountInformation(user, accountId, creditAccount);
+        updateAccountInformation(user, accountId, debitAccount);
 
-        return creditAccount;
+        return debitAccount;
 
     }
 
@@ -67,6 +70,8 @@ public class Bank {
                 .setCommission(commission)
                 .setCreditLimit(creditLimit)
                 .build();
+
+        accounts.put(accountId, creditAccount);
 
         updateAccountInformation(user, accountId, creditAccount);
 
@@ -80,6 +85,8 @@ public class Bank {
                 .setLowMiddleHighPercents(lowPercent, middlePercent, highPercent)
                 .build();
 
+        accounts.put(accountId, depositAccount);
+
         updateAccountInformation(user, accountId, depositAccount);
 
         return depositAccount;
@@ -90,6 +97,21 @@ public class Bank {
         if (users.containsKey(user)) throw new InvalidValueException();
         ArrayList<Integer> newUserAccounts = new ArrayList<>();
         users.put(user, newUserAccounts);
+    }
+
+    public void handleCommand(ICommand command, User user) throws UnverifiedUserException, InvalidValueException, DebitWithdrawException, CommandRollbackException {
+
+        if (!user.isVerified()) throw new UnverifiedUserException();
+
+        try {
+
+            command.execute(accounts, user);
+
+        } catch (CommandExecutingException e) {
+
+            command.rollback();
+
+        }
     }
 
 }

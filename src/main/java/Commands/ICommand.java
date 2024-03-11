@@ -10,6 +10,6 @@ import Tools.InvalidValueException;
 import java.util.Map;
 
 public interface ICommand {
-    public void execute(Map<IAccount, Integer> accounts, User user) throws CommandExecutingException, InvalidValueException, DebitWithdrawException;
+    public void execute(Map<Integer, IAccount> accounts, User user) throws CommandExecutingException, InvalidValueException, DebitWithdrawException;
     public void rollback() throws CommandRollbackException, InvalidValueException, DebitWithdrawException;
 }

@@ -18,7 +18,7 @@ public class WithdrawMoneyCommand implements ICommand {
     @NonNull private Double money;
     private boolean canRollback = false;
     @Override
-    public void execute(Map<IAccount, Integer> accounts, User user) throws CommandExecutingException, InvalidValueException, DebitWithdrawException {
+    public void execute(Map<Integer, IAccount> accounts, User user) throws CommandExecutingException, InvalidValueException, DebitWithdrawException {
 
         if (!accounts.containsValue(currentAccountId) || canRollback) throw new CommandExecutingException();
 

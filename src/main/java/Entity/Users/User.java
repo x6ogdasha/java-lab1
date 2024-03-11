@@ -1,14 +1,16 @@
 package Entity.Users;
 
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+
 public class User {
 
-    @NonNull private String firstName;
-    @NonNull private String secondName;
+    @NonNull private String name;
     @NonNull private String address;
     @NonNull private Integer passport;
-    private boolean verified;
+    @NonNull private Integer pin;
+    @Getter private boolean verified;
 }

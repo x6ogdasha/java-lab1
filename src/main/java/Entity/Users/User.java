@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Пользователь (имя, адресс, пасспорт и пин)
+ */
 @RequiredArgsConstructor
 
 public class User {

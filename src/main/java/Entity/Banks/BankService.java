@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ *  Сервис банковских методов для авторизации (хранение банков и пользователей)
+ */
 @RequiredArgsConstructor
 public class BankService {
 
@@ -16,6 +19,11 @@ public class BankService {
 
     private final Integer emperorPassword = 1902;
     Boolean isEmperorLogged = false;
+
+    /**
+     * Проверка входа императора
+     * @param password
+     */
     public void checkForPermission(Integer password) {
 
         if (password == emperorPassword) {

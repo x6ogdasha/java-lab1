@@ -15,6 +15,9 @@ import java.util.Dictionary;
 import java.util.Map;
 import java.util.stream.Stream;
 
+/**
+ * Банк (хранение пользователей и счетов, также бановкские характеристики (проценты, комиссии, кредитные лимиты и тд))
+ */
 @AllArgsConstructor
 public class Bank {
 
@@ -31,6 +34,12 @@ public class Bank {
     private Integer creditLimit;
     private Integer daysToUnlockDeposit;
 
+    /**
+     * Обновление информации об аккаунте
+     * @param user
+     * @param accountId
+     * @param account
+     */
     private void updateAccountInformation(User user, Integer accountId, IAccount account) {
         if (users.containsKey(user)) {
 
@@ -49,6 +58,12 @@ public class Bank {
 
     }
 
+    /**
+     * @param user
+     * @param accountId
+     * @return Новый объект дебетового счета
+     * @throws InvalidValueException
+     */
     public IAccount createDebitAccount(User user, Integer accountId) throws InvalidValueException {
 
         IAccount debitAccount = AccountDirector.create(AccountType.Credit)

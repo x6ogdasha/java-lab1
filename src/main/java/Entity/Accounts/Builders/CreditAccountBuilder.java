@@ -3,11 +3,17 @@ package Entity.Accounts.Builders;
 import Entity.Accounts.CreditAccount;
 import Entity.Accounts.IAccount;
 
+/**
+ * Билдер для кредитного аккаунта (кредитный лимит, айди владельца и коммиссия)
+ */
 public class CreditAccountBuilder implements IAccountBuilder{
     private Integer myCreditLimit;
     private Integer myAccountId;
     private Double myCommission;
 
+    /**
+     * @return Возвращает новый объект кредитного аккаунта
+     */
     public IAccount build(){
         return new CreditAccount(myCreditLimit, myAccountId, myCommission);
     }
@@ -17,6 +23,11 @@ public class CreditAccountBuilder implements IAccountBuilder{
         return this;
     }
 
+    /**
+     * Установка кредитного лимита
+     * @param creditLimit
+     * @return объект билдера аккаунтов
+     */
     @Override
     public IAccountBuilder setCreditLimit(Integer creditLimit) {
         myCreditLimit = creditLimit;

@@ -32,6 +32,6 @@ public class UserBuilder {
         return this;
     }
     public User create() {
-        return new User(myFirstName, mySecondName, myAddress, myPassport);
+        return new User(myFirstName, myAddress, myPassport, 0);
     }
 }

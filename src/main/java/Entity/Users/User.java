@@ -15,5 +15,7 @@ public class User {
     @NonNull private String address;
     @NonNull private Integer passport;
     @NonNull private Integer pin;
-    @Getter private boolean verified;
+    private boolean verified;
+
+    public Boolean isVerified() { return address != null && passport != null; }
 }

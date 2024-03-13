@@ -3,6 +3,7 @@ package Entity.Accounts;
 import Tools.CreditBalanceException;
 import Tools.CreditLimitException;
 import Tools.InvalidValueException;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
@@ -13,9 +14,9 @@ import lombok.RequiredArgsConstructor;
 public class CreditAccount implements IAccount{
 
     private Double balance = 0.0;
-    @NonNull private Integer creditLimit;
+    @NonNull Integer creditLimit;
     @NonNull private Integer ownerId;
-    @NonNull private Double commission;
+    @Getter @NonNull Double commission;
 
 
     /**

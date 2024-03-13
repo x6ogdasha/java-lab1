@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public class Bank {
 
-    Map<User, ArrayList<Integer>> users;
+    @Getter Map<User, ArrayList<Integer>> users;
     @Getter Map<Integer, IAccount> accounts;
 
     @Getter String name;

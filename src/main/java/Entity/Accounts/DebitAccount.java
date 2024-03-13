@@ -2,14 +2,15 @@ package Entity.Accounts;
 
 import Tools.DebitWithdrawException;
 import Tools.InvalidValueException;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class DebitAccount implements IAccount {
 
-    private final Integer days = 365;
-    private Double balance = 0.0;
+    private final Integer months = 12;
+    @Getter Double balance = 0.0;
     @NonNull private Integer ownerId;
     @NonNull private Double percent;
     private Double monthPayment;
@@ -35,6 +36,6 @@ public class DebitAccount implements IAccount {
 
     @Override
     public void calculateCommission() {
-        monthPayment = (balance * percent) / days;
+        monthPayment = (balance * percent) / months;
     }
 }
